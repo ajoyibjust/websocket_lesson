@@ -15,6 +15,7 @@ class HiveChat {
       if (product != null && product is Map<String, dynamic>) {
         localProducts.add(product);
       }
+      print(product);
     }
     return localProducts;
   }

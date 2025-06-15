@@ -14,6 +14,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     for (var mes in messages) {
       chat.add(Message.fromJson(mes));
     }
+    add(FetchChat());
   }
 
   ChatBloc() : super(ChatInitial()) {

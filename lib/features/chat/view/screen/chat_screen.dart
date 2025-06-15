@@ -30,7 +30,9 @@ class _ChatScreenState extends State<ChatScreen> {
         actions: [
           IconButton(
             icon: Icon(Icons.more_vert, color: Colors.white),
-            onPressed: () {},
+            onPressed: () {
+              HiveChat().readAlldata();
+            },
           ),
         ],
       ),
