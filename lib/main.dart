@@ -5,7 +5,6 @@ import 'package:websocket_lesson/features/view/blocs/chat_bloc.dart';
 import 'package:websocket_lesson/features/view/blocs/chat_event.dart';
 import 'package:websocket_lesson/features/view/screen/chat_screen.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 

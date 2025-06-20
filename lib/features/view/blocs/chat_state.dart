@@ -1,4 +1,3 @@
-
 import 'package:websocket_lesson/features/data/models/message.dart';
 
 abstract class ChatState {}

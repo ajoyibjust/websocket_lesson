@@ -5,9 +5,8 @@ import 'package:websocket_lesson/features/view/blocs/chat_bloc.dart';
 import 'package:websocket_lesson/features/view/blocs/chat_event.dart';
 
 class BottomBar extends StatelessWidget {
-   BottomBar({super.key});
+  BottomBar({super.key});
   final _messageController = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -30,16 +29,16 @@ class BottomBar extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: (){
-                  if (_messageController.text.trim().isNotEmpty) {
-      final message = Message(
-        name: "NoBody",
-        message: _messageController.text.trim(),
-        time: DateTime.now(),
-      );
-      context.read<ChatBloc>().add(SendMessage(message));
-      _messageController.clear();
-    }
+              onPressed: () {
+                if (_messageController.text.trim().isNotEmpty) {
+                  final message = Message(
+                    name: "NoBody",
+                    message: _messageController.text.trim(),
+                    time: DateTime.now(),
+                  );
+                  context.read<ChatBloc>().add(SendMessage(message));
+                  _messageController.clear();
+                }
               },
               icon: Icon(Icons.send, color: Colors.white),
             ),
@@ -49,5 +48,3 @@ class BottomBar extends StatelessWidget {
     );
   }
 }
-
-

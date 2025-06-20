@@ -3,13 +3,8 @@ class Message {
   final String message;
   final DateTime time;
 
-  Message({
-    required this.name,
-    required this.message,
-    required this.time,
-  });
+  Message({required this.name, required this.message, required this.time});
 
-  // JSON dan o'qish
   factory Message.fromJson(Map<String, dynamic> json) {
     return Message(
       name: json['name'],
@@ -18,16 +13,10 @@ class Message {
     );
   }
 
-  // JSON ga aylantirish
   Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'message': message,
-      'time': time.toIso8601String(),
-    };
+    return {'name': name, 'message': message, 'time': time.toIso8601String()};
   }
 
-  // Hive uchun Map ga aylantirish
   Map<String, dynamic> toMap() {
     return {
       'name': name,
@@ -36,7 +25,6 @@ class Message {
     };
   }
 
-  // Map dan Message yaratish
   factory Message.fromMap(Map<String, dynamic> map) {
     return Message(
       name: map['name'],
