@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../blocs/chat_bloc/chat_bloc.dart';
-import '../blocs/chat_bloc/chat_state.dart';
+import 'package:websocket_lesson/features/chat/view/blocs/chat_bloc.dart';
 
 class ChatBody extends StatelessWidget {
   const ChatBody({super.key});
@@ -15,9 +14,9 @@ class ChatBody extends StatelessWidget {
         color: Color(0xFF0E1621),
         child: BlocBuilder<ChatBloc, ChatState>(
           builder: (context, state) {
-            if (state is ChatLoading) {
+            if (state is Loading) {
               return const Center(child: CircularProgressIndicator());
-            } else if (state is ChatSuccess) {
+            } else if (state is Success) {
               final chat = state.messages;
               return ListView.separated(
                 padding: const EdgeInsets.only(bottom: 10),
@@ -57,7 +56,7 @@ class ChatBody extends StatelessWidget {
                 separatorBuilder: (context, index) => const SizedBox(height: 5),
                 itemCount: chat.length,
               );
-            } else if (state is ChatFailure) {
+            } else if (state is Failure) {
               return Center(child: Text(state.error));
             }
             return const SizedBox();

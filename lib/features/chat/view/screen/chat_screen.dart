@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:websocket_lesson/core/service/hive_chat.dart';
-import 'package:websocket_lesson/features/chat/view/blocs/chat_bloc/chat_bloc.dart';
-import 'package:websocket_lesson/features/chat/view/blocs/chat_bloc/chat_event.dart';
+import 'package:websocket_lesson/features/chat/data/models/message.dart';
+import 'package:websocket_lesson/features/chat/view/blocs/chat_bloc.dart';
 import 'package:websocket_lesson/features/chat/view/widget/chat_body.dart';
-import '../../data/model/message.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -30,9 +28,7 @@ class _ChatScreenState extends State<ChatScreen> {
         actions: [
           IconButton(
             icon: Icon(Icons.more_vert, color: Colors.white),
-            onPressed: () {
-              HiveChat().readAlldata();
-            },
+            onPressed: () {},
           ),
         ],
       ),
@@ -64,11 +60,6 @@ class _ChatScreenState extends State<ChatScreen> {
                         time: DateTime.now().toIso8601String(),
                       ),
                     ),
-                  );
-                  HiveChat().insertData(
-                    name: "NoBody",
-                    message: message.text,
-                    time: DateTime.now().toIso8601String(),
                   );
                   message.clear();
                 },
